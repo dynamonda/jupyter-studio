@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  jupyter:
+    container_name: jupyter-studio
+    image: jupyter-studio:1.0
+    ports:
+      - "19999:8888"
+    volumes:
+      - ./app:/home/jovyan/work
+      - ./data:/data
+    user: root
+    environment:
+      GRANT_SUDO: "yes"
+    deploy:
+      resources:
+        reservations:
+          devices:
+              - driver: nvidia
+                device_ids: ['0']
+                capabilities: [compute, utility]
