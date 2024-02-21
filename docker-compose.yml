@@ -3,7 +3,7 @@ version: '3'
 services:
   jupyter:
     container_name: jupyter-studio
-    image: jupyter-studio:1.0
+    image: dynamonda/jupyter-studio:1.1
     ports:
       - "19999:8888"
     volumes:
